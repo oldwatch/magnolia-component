@@ -1,0 +1,4 @@
+title: teaser
+renderType: freemarker
+dialog: demo:components/teaser
+templateScript: /demo/templates/components/teaser.ftl

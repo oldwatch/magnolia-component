@@ -1,0 +1,14 @@
+title: demo page
+#dialog: demo:pages/main
+class: info.magnolia.module.site.templates.PageTemplateDefinition
+renderType: freemarker
+templateScript: /demo/templates/pages/test.ftl
+# areas:
+areas:
+  main:
+    type: single
+    availableComponents:
+      teaser:
+        id: demo:components/teaser
+      textImage:
+        id: mtk:components/textImage

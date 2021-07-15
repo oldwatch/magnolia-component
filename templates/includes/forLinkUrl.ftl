@@ -1,0 +1,8 @@
+[#assign swValue=content[linkFieldName] ]
+[#if swValue.page?has_content ]
+    [#include "/demo/templates/includes/linkPage.ftl"]
+[#elseif swValue.external?has_content]
+    [#include "/demo/templates/includes/linkExternal.ftl"]
+[#else]
+    [#assign resolveError = true ]
+[/#if]

@@ -1,0 +1,72 @@
+form:
+  layout:
+    $type: tabbedLayout
+    tabs:
+      linkTab: 
+        label: image
+        fields:
+          - name: image
+          - name: title
+          - name: description
+          - name: link
+      imageTab:
+        label: action
+        fields:
+          - name: actions
+  properties:
+    title:
+      label: title
+      $type: textField
+    description:
+      label: description
+      $type: richTextField
+      height: 500
+    link:
+      label: titleLink
+      $type: switchableField
+      field:
+        name: linkType
+        $type: radioButtonGroupField
+        layout: horizontal
+        datasource:
+          $type: optionListDatasource
+          options:
+            - name: page
+              value: page
+            - name: external
+              value: external
+      itemProvider:
+        $type: jcrChildNodeProvider
+      forms:
+        - name: page
+          properties:
+            page:
+              $type: pageLinkField
+              converterClass: info.magnolia.ui.editor.converter.JcrNodeToPathConverter 
+        - name: external
+          properties:
+            external:
+              $type: textField
+    image:
+      label: image
+      $type: damLinkField
+    actions:
+      label: actions
+      $type: jcrMultiField
+      itemProvider: 
+        $type: jcrChildNodeProvider
+      field:
+        $type: compositeField
+        itemProvider: 
+          $type: jcrChildNodeProvider
+        properties:
+          actionLink:
+            label: page
+            $type: pageLinkField
+            converterClass: info.magnolia.ui.editor.converter.JcrNodeToPathConverter
+          title:
+            label: title
+            $type: textField
+
+          
+          
